@@ -1,0 +1,62 @@
+-- tables
+-- Table: doença
+CREATE TABLE doença (
+    id int  NOT NULL AUTO_INCREMENT,
+    nome varchar(100)  NOT NULL,
+    descricao Text  NOT NULL,
+    CONSTRAINT doença_pk PRIMARY KEY (id)
+);
+
+-- Table: equipe_saude
+CREATE TABLE equipe_saude (
+    id int  NOT NULL AUTO_INCREMENT,
+    nome varchar(100)  NOT NULL,
+    cargo varchar(100)  NOT NULL,
+    especialidade varchar(100)  NOT NULL,
+    CONSTRAINT equipe_saude_pk PRIMARY KEY (id)
+);
+
+-- Table: paciente
+CREATE TABLE paciente (
+    id int  NOT NULL AUTO_INCREMENT,
+    nome varchar(100)  NOT NULL,
+    idade tinyint  NOT NULL,
+    genero ENUM("MASCULINO","FEMININO","OUTRO")  NOT NULL,
+    endereco varchar(255)  NOT NULL,
+    CONSTRAINT paciente_pk PRIMARY KEY (id)
+);
+
+-- Table: tratamento
+CREATE TABLE tratamento (
+    id int  NOT NULL AUTO_INCREMENT,
+    nome varchar(100)  NOT NULL,
+    descricao Text  NOT NULL,
+    CONSTRAINT tratamento_pk PRIMARY KEY (id)
+);
+
+-- Table: registro_medico
+CREATE TABLE registro_medico (
+    id int  NOT NULL AUTO_INCREMENT,
+    data_registro datetime  NOT NULL,
+    paciente_id int  NOT NULL,
+    tratamento_id int  NOT NULL,
+    doença_id int  NOT NULL,
+    equipe_saude_id int  NOT NULL,
+    CONSTRAINT registro_medico_pk PRIMARY KEY (id)
+);
+
+-- foreign keys:
+ALTER TABLE registro_medico ADD CONSTRAINT registro_medico_doença FOREIGN KEY (doença_id)
+    REFERENCES doença (id);
+
+ALTER TABLE registro_medico ADD CONSTRAINT registro_medico_equipe_saude FOREIGN KEY (equipe_saude_id)
+    REFERENCES equipe_saude (id);
+
+ALTER TABLE registro_medico ADD CONSTRAINT registro_medico_paciente FOREIGN KEY (paciente_id)
+    REFERENCES paciente (id);
+
+ALTER TABLE registro_medico ADD CONSTRAINT registro_medico_tratamento FOREIGN KEY (tratamento_id)
+    REFERENCES tratamento (id);
+
+
+
