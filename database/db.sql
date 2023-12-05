@@ -1,10 +1,10 @@
 -- tables
 -- Table: doença
-CREATE TABLE doença (
+CREATE TABLE doenca (
     id int  NOT NULL AUTO_INCREMENT,
     nome varchar(100)  NOT NULL,
     descricao Text  NOT NULL,
-    CONSTRAINT doença_pk PRIMARY KEY (id)
+    CONSTRAINT doenca_pk PRIMARY KEY (id)
 );
 
 -- Table: equipe_saude
@@ -41,14 +41,14 @@ CREATE TABLE registro_medico (
     data_registro datetime  NOT NULL,
     paciente_id int  NOT NULL,
     tratamento_id int  NOT NULL,
-    doença_id int  NOT NULL,
+    doenca_id int  NOT NULL,
     equipe_saude_id int  NOT NULL,
     CONSTRAINT registro_medico_pk PRIMARY KEY (id)
 );
 
 -- foreign keys:
-ALTER TABLE registro_medico ADD CONSTRAINT registro_medico_doença FOREIGN KEY (doença_id)
-    REFERENCES doença (id);
+ALTER TABLE registro_medico ADD CONSTRAINT registro_medico_doenca FOREIGN KEY (doenca_id)
+    REFERENCES doenca (id);
 
 ALTER TABLE registro_medico ADD CONSTRAINT registro_medico_equipe_saude FOREIGN KEY (equipe_saude_id)
     REFERENCES equipe_saude (id);
