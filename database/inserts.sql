@@ -13,7 +13,7 @@ INSERT INTO equipe_saude (nome, cargo, especialidade) VALUES
 -- Inserções na tabela paciente
 -- Inserção de paciente com CPF não formatado
 INSERT INTO paciente (nome, idade, cpf, genero, endereco) VALUES 
-('Fulano', 30, '12345678900', 'MASCULINO', 'Rua A, 123'),
+('Fulano', 30, '12545678900', 'MASCULINO', 'Rua A, 123'),
 -- Inserção de paciente com CPF formatado corretamente
 ('Ciclano', 25, '123.456.789-00', 'FEMININO', 'Rua B, 456'),
 ('Beltrano', 40, '789.987.654-32', 'OUTRO', 'Rua C, 789');
