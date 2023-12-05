@@ -1,5 +1,5 @@
 -- Inserções na tabela doença
-INSERT INTO doença (nome, descricao) VALUES
+INSERT INTO doenca (nome, descricao) VALUES
   ('Gripe', 'Infecção viral comum causando febre e dor de garganta.'),
   ('Fratura', 'Osso quebrado devido a um acidente.'),
   ('Hipertensão', 'Pressão arterial elevada, muitas vezes relacionada ao estresse.');
@@ -26,7 +26,7 @@ INSERT INTO tratamento (nome, descricao) VALUES
   ('Cirurgia de Fratura', 'Procedimento cirúrgico para reparar ossos quebrados');
 
 -- Inserções na tabela registro_medico
-INSERT INTO registro_medico (data_registro, paciente_id, tratamento_id, doença_id, equipe_saude_id) VALUES
+INSERT INTO registro_medico (data_registro, paciente_id, tratamento_id, doenca_id, equipe_saude_id) VALUES
   ('2023-11-01 10:10:00', 1, 1, 1, 1),
   ('2023-11-02 11:30:00', 2, 2, 2, 2),
   ('2023-11-03 09:45:00', 3, 3, 3, 3);
