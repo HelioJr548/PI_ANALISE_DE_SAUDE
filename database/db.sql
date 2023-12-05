@@ -20,6 +20,7 @@ CREATE TABLE equipe_saude (
 CREATE TABLE paciente (
     id int  NOT NULL AUTO_INCREMENT,
     nome varchar(100)  NOT NULL,
+    cpf varchar(14) NOT NULL UNIQUE,
     idade tinyint  NOT NULL,
     genero ENUM("MASCULINO","FEMININO","OUTRO")  NOT NULL,
     endereco varchar(255)  NOT NULL,
@@ -58,5 +59,6 @@ ALTER TABLE registro_medico ADD CONSTRAINT registro_medico_paciente FOREIGN KEY 
 ALTER TABLE registro_medico ADD CONSTRAINT registro_medico_tratamento FOREIGN KEY (tratamento_id)
     REFERENCES tratamento (id);
 
-
-
+-- Alter Table: restrição de unicidade
+ALTER TABLE registro_medico 
+ADD CONSTRAINT registro_unico UNIQUE (paciente_id, data_registro);
